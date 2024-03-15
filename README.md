@@ -6,7 +6,7 @@ Test:
 For testing learned-ratio methods, run experiment_scripts/train_x.py. 
 You can test different models by changing line 72 and 73. 
 <pre>
-For example, when testing models under logs/24-03-08/24-03-08-MST/MST_adaptive/<b>v_34</b>/checkpoints/<b>model_epoch_0006.pth</b>, line 72/73 should be like,
+For example, when testing models under logs/24-03-08/24-03-08-MST/MST_adaptive/<b>v_34</b>/checkpoints/<b>model_epoch_0006.pth</b>, line 72/73 are,
 
 file = [f for f in os.listdir(f'{dir_name}/<b>v_{34}</b>/checkpoints') if '<b>model_epoch_0006.pth</b>' in f][0] 
 
