@@ -12,6 +12,7 @@ file = [f for f in os.listdir(f'{dir_name}/<b>v_{34}</b>/checkpoints') if '<b>mo
 
 fname = f'{dir_name}/<b>v_{34}</b>/checkpoints/{file}'
 <pre>
+
 The average ratio for v_30, v_19, v_10, v_11, v_34 are 0.87, 1.18,  1.3,  1.44,  1.69 respectively.
 
 
