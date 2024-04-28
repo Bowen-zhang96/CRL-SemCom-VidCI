@@ -22,5 +22,14 @@ For testing fixed-ratio methods, also run experiment_scripts/train_x.py. but mak
 
 Besides, we made a mistake for fixed ratio method when average ratio is 1 and mask B is not used. The PSNR should be 32.3 not 29.54. 29.54 is the performance when mask B is used. I drew the picture in a hurry so made a mistake here.
 
+## Additional information
+If you find the source code is useful for your research, please cite our paper:  
+@article{zhang2023compression,
+  title={Compression Ratio Learning and Semantic Communications for Video Imaging},
+  author={Zhang, Bowen and Qin, Zhijin and Li, Geoffrey Ye},
+  journal={arXiv preprint arXiv:2310.06246},
+  year={2023}
+}
+
 
 
