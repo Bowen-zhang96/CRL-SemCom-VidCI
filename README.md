@@ -1,5 +1,5 @@
 # CRL-SemCom-VidCI
-This is the official implementation for 'Compression Ratio Learning and Semantic Communications for Video Imaging'  
+This is the official implementation for 'Compression Ratio Learning and Semantic Communications for Video Imaging'  [paper](https://arxiv.org/pdf/2310.06246)
 
 Test:
 
