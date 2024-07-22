@@ -5,7 +5,7 @@ This is the official implementation for 'Compression Ratio Learning and Semantic
 
 ## Compression Ratio Learning
 
-<b>Test<b>:
+<b>Test</b>:
 
 For testing learned-ratio methods, run experiment_scripts/project_test_x.py. 
 You can test different models by changing line 72 and 73 of project_test_x.py. 
@@ -26,7 +26,7 @@ For testing fixed-ratio methods, also run experiment_scripts/project_test_x.py. 
 
 Besides, we made a mistake when plotting the figure for the fixed ratio method when the average ratio is 1 and mask B is not used. The PSNR should be 32.3 not 29.54. 29.54 is the performance when mask B is used. 
 
-<b>Train<b>:
+<b>Train</b>:
 For training learned-ratio methods, run experiment_scripts/train_x.py.
 When training learned-ratio methods, we recover the video reconstruction network in fixed-ratio methods with action=4 by default.
 To adjust the average sampling rate, adjust the parameter in line 177 of train_x.py. As a reference, when 0.05 is used, the average ratio is about 3.25; when 1 is used, the average ratio is about 1.82.
