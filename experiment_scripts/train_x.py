@@ -80,10 +80,10 @@ def main(args):
         # enabling this if its for training
         # print(checkpoint['model_state_dict'].keys())
 
-
+        #For continual training
         if 'adaptive' in restore_name:
-            new_state_dict={k:v for k,v in zip(checkpoint['model_state_dict'].keys(), checkpoint['model_state_dict'].values()) if 'shutter.model.body.4' not in k}
-            model.load_state_dict(new_state_dict, strict=False)
+            model.load_state_dict(checkpoint['model_state_dict'], strict=False)
+            optim.load_state_dict(checkpoint['optim_state_dict'])
         else:
             new_state_dict = {k: v for k, v in
                               zip(checkpoint['model_state_dict'].keys(), checkpoint['model_state_dict'].values()) if
