@@ -5,7 +5,7 @@ This is the official implementation for 'Compression Ratio Learning and Semantic
 
 ## Compression Ratio Learning
 
-Test:
+<b>Test<b>:
 
 For testing learned-ratio methods, run experiment_scripts/project_test_x.py. 
 You can test different models by changing line 72 and 73 of project_test_x.py. 
@@ -24,9 +24,9 @@ For testing fixed-ratio methods, also run experiment_scripts/project_test_x.py. 
 2. still change line 72/73 to test models under logs/24-03-08/24-03-08-MST/MST_fixed/v_1 or v_2 or v_3 or v_4
 3. open  line 366 in shutters/shutters_adaptive5_nomask.py and for testing v_1, v_2, v_3, v_4, action=1*, 2*, 3*, 4* torch.ones_like(action), respectively.
 
-Besides, we made a mistake for fixed ratio method when average ratio is 1 and mask B is not used. The PSNR should be 32.3 not 29.54. 29.54 is the performance when mask B is used. I drew the picture in a hurry so made a mistake here.
+Besides, we made a mistake when plotting the figure for the fixed ratio method when the average ratio is 1 and mask B is not used. The PSNR should be 32.3 not 29.54. 29.54 is the performance when mask B is used. 
 
-Train:
+<b>Train<b>:
 For training learned-ratio methods, run experiment_scripts/train_x.py.
 When training learned-ratio methods, we recover the video reconstruction network in fixed-ratio methods with action=4 by default.
 To adjust the average sampling rate, adjust the parameter in line 177 of train_x.py. As a reference, when 0.05 is used, the average ratio is about 3.25; when 1 is used, the average ratio is about 1.82.
