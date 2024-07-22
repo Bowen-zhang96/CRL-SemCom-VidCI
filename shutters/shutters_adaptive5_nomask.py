@@ -339,7 +339,7 @@ class LSVPE(ShutterBase):
 
 
 
-    def forward(self, video_block, train=False):
+    def forward(self, video_block, train=False, steps=None):
         if train:
             self.total_steps += 1
         [block_current, ref] = video_block
@@ -348,23 +348,38 @@ class LSVPE(ShutterBase):
         b,c,h,w=ref.size()
         Policy_dis=self.model(self.rand_init_new).repeat(b,1,1,1)
 
-        action = Policy_dis.argmax(dim=1)
- 
-   #     action=4.0*torch.ones_like(action)
+
+
+        if train:
+            alpha=0.2/(1+steps*1e-3)
+            Policy_dis=Policy_dis*(1-alpha)+alpha*torch.Tensor([[0.1,0.1,0.2,0.25,0.35]]).reshape(1,5,1,1).cuda()
+            action = torch.distributions.Categorical(probs=Policy_dis.permute(0, 2, 3, 1)).sample()
+            # action=torch.ones_like(action)*4
+            log_prob = torch.distributions.Categorical(probs=Policy_dis.permute(0, 2, 3, 1)).log_prob(action)
+            action=action.unsqueeze(1)
+            log_prob=log_prob.unsqueeze(1)
+            action=action-1
+
+        else:
+            action = Policy_dis.argmax(dim=1)
+
+            #     action=4.0*torch.ones_like(action)
+            action = action.unsqueeze(1)
+
+            action = action - 1
+            log_prob=None
 
 
         
-        action=action.unsqueeze(1)
 
-        action=action-1
     
      #    action=torch.clamp(torch.round(self.rand_init),-1,3)+(self.rand_init-self.rand_init.detach())
         
         measurement = self.get_measurement(block_current, action.detach(), train)
 
-        # useless these two lines
-        shutter=F.relu(action.detach()+1 - self.time_range + 0.9).sign()
-        self.lengths = torch.sum(shutter, dim=1, keepdim=True)
+        # # useless these two lines
+        # shutter=F.relu(action.detach()+1 - self.time_range + 0.9).sign()
+        # self.lengths = torch.sum(shutter, dim=1, keepdim=True)
 
 
-        return measurement, action.detach(), None
+        return measurement, action.detach(), log_prob
