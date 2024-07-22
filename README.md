@@ -25,9 +25,11 @@ For testing fixed-ratio methods, also run experiment_scripts/project_test_x.py. 
 1. Change line 198 from parser.add_argument('--exp_name', type=str, default='MST_adaptive') to parser.add_argument('--exp_name', type=str, default='MST_fixed')
 2. still change line 72/73 to test models under logs/24-03-08/24-03-08-MST/MST_fixed/v_1 or v_2 or v_3 or v_4
 3. open  line 366 in shutters/shutters_adaptive5_nomask.py and for testing v_1, v_2, v_3, v_4, action=1*, 2*, 3*, 4* torch.ones_like(action), respectively.
-<br>
+<be>
+
 Besides, we made a mistake when plotting the figure for the fixed ratio method when the average ratio is 1 and mask B is not used. The PSNR should be 32.3 not 29.54. 29.54 is the performance when mask B is used. 
 <br>
+
 <b>Train</b>:
 For training learned-ratio methods, run experiment_scripts/train_x.py.
 <br>
