@@ -40,10 +40,17 @@ def modify_args(args):
             exp_name = f'{dir_name}/{args.exp_name}'
         else:
             exp_name = f'{dir_name}/{printed_args}'
+
+        if args.restore_dic_name != '':
+            restore_name = f'{dir_name}/{args.restore_dic_name}'
+        else:
+            restore_name = f'{dir_name}/{printed_args}'
+
         print(exp_name)
+        print(restore_name)
         if args.date_resume != '00-00-00' and not os.path.exists(exp_name):
             raise ValueError('This directory does not exist :-(')
-    return args, exp_name
+    return args, exp_name, restore_name
 
 
 def save_best_metrics(args, total_steps, epoch, val_psnrs, val_ssims, val_lpips, checkpoints_dir):

@@ -53,8 +53,8 @@ class Model(nn.Module):
 
         self.dec_name = dec_name
 
-    def forward(self, input, train=True):
-        coded1, actions, rate_loss = self.shutter(input, train=train)
+    def forward(self, input, train=True, steps=None):
+        coded1, actions, rate_loss = self.shutter(input, train=train, steps=steps)
         if not coded1.requires_grad:
             ## needed for computing gradients wrt input for fixed shutters
             coded1.requires_grad = True
