@@ -31,6 +31,7 @@ Besides, we made a mistake when plotting the figure for the fixed ratio method w
 <br>
 
 <b>Train</b>:
+<br>
 For training learned-ratio methods, run experiment_scripts/train_x.py.
 <br>
 When training learned-ratio methods, we recover the video reconstruction network in fixed-ratio methods with action=4 by default.
